@@ -9,6 +9,8 @@ import LayoutSticky from './components/LayoutSticky.vue'
   <LayoutSticky/>
   <LayoutNav />
   <LayoutHeader />
-  <RouterView />
+  <!-- 强制销毁路由缓存 -->
+  <!-- <RouterView :key="$route.fullPath"/> -->
+  <RouterView/>
   <LayoutFooter />
 </template>

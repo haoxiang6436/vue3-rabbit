@@ -8,10 +8,10 @@ const router = createRouter({
   routes: [
     {
       path: '/', component: layout,
-      redirect: '/home',
+      // redirect: '/home',
       children: [
-        { path: '/home', component: () => import('@/views/Home/index.vue') },
-        { path: '/category', component: () => import('@/views/Category/index.vue') }
+        { path: '/', component: () => import('@/views/Home/index.vue') },
+        { path: '/category/:id', component: () => import('@/views/Category/index.vue') }
       ]
     },
     { path: '/login', component: login },
