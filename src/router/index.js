@@ -8,14 +8,20 @@ const router = createRouter({
   routes: [
     {
       path: '/', component: layout,
-      // redirect: '/home',
       children: [
         { path: '/', component: () => import('@/views/Home/index.vue') },
-        { path: '/category/:id', component: () => import('@/views/Category/index.vue') }
+        { path: '/category/:id', component: () => import('@/views/Category/index.vue') },
+        { path: '/category/sub/:id', component: () => import('@/views/SubCategory/index.vue') },
       ]
     },
     { path: '/login', component: login },
-  ]
+  ],
+  // 路由滚动行为
+  scrollBehavior() {
+    return {
+      top: 0
+    }
+  }
 })
 
 export default router
