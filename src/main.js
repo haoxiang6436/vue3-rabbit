@@ -7,8 +7,11 @@ const app = createApp(App)
 
 app.use(pinia)
 app.use(router)
-
 app.mount('#app')
 
-import {directivePlugin} from '@/directives'
+// 指令
+import { directivePlugin } from '@/directives'
 app.use(directivePlugin)
+// 组件
+import { componentPlugin } from '@/components'
+app.use(componentPlugin)
