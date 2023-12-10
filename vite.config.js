@@ -8,9 +8,12 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   css: {
     preprocessorOptions: {
-      // 1-自动导入定制化样式文件进行覆盖
       scss: {
-        additionalData:`@use "@/styles/element/index.scss" as *;`,
+      // 1-自动导入定制化样式文件进行覆盖
+        additionalData:`
+        @use "@/styles/element/index.scss" as *;
+        @use "@/styles/var.scss" as *;
+        `,
       }
     }
   },
