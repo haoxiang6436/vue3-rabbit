@@ -7,11 +7,13 @@ import homeProduct from './components/HomeProduct.vue'
 </script>
 
 <template>
-  <div class="container">
-    <HomeCategory />
-    <HomeBanner />
+  <div>
+    <div class="container">
+      <HomeCategory />
+      <HomeBanner />
+    </div>
+    <HomeNew />
+    <HomeHot />
+    <homeProduct />
   </div>
-  <HomeNew />
-  <HomeHot />
-  <homeProduct />
 </template>

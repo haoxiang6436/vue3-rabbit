@@ -8,6 +8,7 @@ const route = useRoute()
 const getGoods = async () => {
   const res = await getDetail(route.params.id)
   goods.value = res.result
+  console.log(res);
 }
 onMounted(() => getGoods())
 const SkuChange = (SkuData) => {
@@ -17,7 +18,7 @@ const SkuChange = (SkuData) => {
 
 <template>
   <div class="xtx-goods-page">
-    <div class="container" v-if="goods.details">
+    <div class="container" v-if="goods.brand">
       <div class="bread-container">
         <el-breadcrumb separator=">">
           <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
