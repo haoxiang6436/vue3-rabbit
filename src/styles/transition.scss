@@ -1,0 +1,41 @@
+/* 下面我们会解释这些 class 是做什么的 */
+.home-enter-active,
+.home-leave-active {
+  transition: all 0.3s ease;
+}
+
+.home-enter-from,
+.home-leave-to {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+/* 下面我们会解释这些 class 是做什么的 */
+.app-enter-active,
+.app-leave-active {
+  transition: all 0.3s ease;
+}
+
+.app-enter-from,
+.app-leave-to {
+  opacity: 0;
+  transform: translateY(-50px);
+}
+
+.list-move, /* 对移动中的元素应用的过渡 */
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+}
+
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+/* 确保将离开的元素从布局流中删除
+  以便能够正确地计算移动的动画。 */
+.list-leave-active {
+  position: absolute;
+}

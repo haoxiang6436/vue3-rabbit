@@ -22,15 +22,5 @@ import LayoutSticky from './components/LayoutSticky.vue'
 </template>
 
 <style lang="scss" scoped>
-/* 下面我们会解释这些 class 是做什么的 */
-.home-enter-active,
-.home-leave-active {
-  transition: all 0.5s ease;
-}
 
-.home-enter-from,
-.home-leave-to {
-  opacity: 0;
-  transform: translateY(50px);
-}
 </style>

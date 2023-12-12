@@ -7,11 +7,9 @@ const route = useRoute()
 const filterData = ref({})
 const getCategoryFilter = async (id = route.params.id) => {
   const { result } = await getCategoryFilterAPI(id)
-  // console.log(result)
   filterData.value = result
 }
 getCategoryFilter()
-//
 // 获取基础列表数据渲染
 const goodList = ref([])
 const reqData = ref({

@@ -6,5 +6,6 @@ pinia.use(piniaPluginPersistedstate)
 
 export default pinia
 
-export * from './modules/category.js'
+export * from './modules/useCategoryStore.js'
 export * from './modules/useUserStore.js'
+export * from './modules/useCartStore.js'

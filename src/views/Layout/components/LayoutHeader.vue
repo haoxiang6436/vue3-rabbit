@@ -9,6 +9,7 @@
 // }
 // getCategory()
 
+import HeaderCart from './HeaderCart.vue';
 import {useLayoutStore} from '@/stores'
 const LayoutStore = useLayoutStore()
 LayoutStore.getCategory()
@@ -33,7 +34,7 @@ LayoutStore.getCategory()
         <input type="text" placeholder="搜一搜">
       </div>
       <!-- 头部购物车 -->
-      
+      <HeaderCart/>
     </div>
   </header>
 </template>

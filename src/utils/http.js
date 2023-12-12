@@ -1,7 +1,5 @@
 import axios from "axios"
 import { ElMessage } from "element-plus"
-// import { ElMessage } from 'element-plus'
-import 'element-plus/theme-chalk/el-message.css'
 import { useUserStore } from "@/stores"
 import router from '@/router';
 
@@ -13,13 +11,12 @@ const instance = axios.create({
 // axios请求拦截器
 instance.interceptors.request.use(config => {
   const userStore = useUserStore()
-  config.headers.Authorization = `Bearer ${userStore.userInfo?.token}`
+  config.headers.Authorization = userStore.userInfo?.token?`Bearer ${userStore.userInfo.token}`:''
   return config
 }, e => Promise.reject(e))
 
 // axios响应式拦截器
 instance.interceptors.response.use(res => {
-  console.log('请求成功')
   return res.data
 }, e => {
   const userStore = useUserStore()
