@@ -9,7 +9,6 @@ export const useCartStore = defineStore('Cart', () => {
   const addCart = async (goods) => {
     // login
     if (UserStore.userInfo?.token) {
-      console.log('以登录')
       await insertCartAPI({ skuId: goods.skuId, count: goods.count })
       updateNewList()
     }
@@ -29,7 +28,6 @@ export const useCartStore = defineStore('Cart', () => {
       updateNewList()
     } else {
       const idx = cartList.value.findIndex((item) => skuId === item.skuId)
-      console.log(idx)
       cartList.value.splice(idx, 1)
     }
   }
@@ -43,7 +41,6 @@ export const useCartStore = defineStore('Cart', () => {
     item.selected = selected
   }
   const allCheck = (selected) => {
-    console.log(selected);
     cartList.value.forEach(item => item.selected = selected);
   }
   const removeCartList = () => {

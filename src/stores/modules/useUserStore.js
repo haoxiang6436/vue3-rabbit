@@ -8,7 +8,7 @@ export const useUserStore = defineStore('User', () => {
   const userInfo = ref({})
   const setUserInfo = async (value) => {
     userInfo.value = value
-    console.log(CartStore.cartList.length !== 0 ? '需要合并购物车' : '无需合并');
+    // console.log(CartStore.cartList.length !== 0 ? '需要合并购物车' : '无需合并');
     await mergeCartAPI(CartStore.cartList.map(item => {
       return {
         skuId: item.skuId,

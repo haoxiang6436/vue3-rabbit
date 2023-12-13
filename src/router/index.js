@@ -26,6 +26,14 @@ const router = createRouter({
         { path: '/pay/:id', component: () => import('@/views/pay/index.vue') },
         // 订单支付结果
         { path: '/paycallback/', component: () => import('@/views/PayCallback/index.vue') },
+        // 会员中心
+        {
+          path: '/member/', component: () => import('@/views/Member/index.vue'),
+          children: [
+            { path: '', component: () => import('@/views/Member/components/UserInfo.vue') },
+            { path: 'order/', component: () => import('@/views/Member/components/UserOrder.vue') }
+          ]
+        },
       ]
     },
     { path: '/login', component: login },

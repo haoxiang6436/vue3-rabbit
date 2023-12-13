@@ -1,14 +1,4 @@
 <script setup>
-// import {getCategoryAPI} from '@/apis/layout.js'
-// import {ref} from 'vue'
-// const CategoryList = ref([])
-// const getCategory = async () => {
-//   const data = await getCategoryAPI()
-//   console.log(data)
-//   CategoryList.value = data.result
-// }
-// getCategory()
-
 import HeaderCart from './HeaderCart.vue';
 import {useLayoutStore} from '@/stores'
 const LayoutStore = useLayoutStore()

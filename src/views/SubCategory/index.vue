@@ -20,14 +20,12 @@ const reqData = ref({
 })
 const getGoodList = async () => {
   const res = await getSubCategoryAPI(reqData.value)
-  console.log(res)
   goodList.value = res.result.items
 }
 getGoodList()
 // tap
 // tab切换回调
 const tabChange = () => {
-  console.log('tab切换了', reqData.value.sortField)
   reqData.value.page = 1
   getGoodList()
 }
@@ -36,10 +34,8 @@ const disable = ref(true)
 const load = async () => {
   reqData.value.page++
   const res = await getSubCategoryAPI(reqData.value)
-  console.log(res)
   goodList.value = [...goodList.value, ...res.result.items]
   if (res.result.items.length === 0) {
-    console.log('stop')
     disable.value = false
   }
 }
