@@ -5,7 +5,6 @@ import { useUserStore } from './useUserStore.js'
 import { insertCartAPI, getCartAPI, delCartAPI } from '@/apis/cart.js'
 export const useCartStore = defineStore('Cart', () => {
   const UserStore = useUserStore()
-  // const isLogin = ref(UserStore.userInfo?.token)
   const cartList = ref([])
   const addCart = async (goods) => {
     // login

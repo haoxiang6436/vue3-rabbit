@@ -1,10 +1,16 @@
 <script setup>
 import { useCartStore } from '@/stores';
+import { useRouter } from 'vue-router';
+import { ElMessage } from 'element-plus';
+const router = useRouter()
 const CartStore = useCartStore()
 const singleCheck = (id,selected) => {
   CartStore.singleCheck(id,selected)
 }
-
+const goCheckout = () => {
+  if (CartStore.cartList.length === 0) return ElMessage.warning('您的购物车还没有任何商品')
+  router.push('/checkout')
+}
 </script>
 
 <template>
@@ -83,7 +89,7 @@ const singleCheck = (id,selected) => {
           <span class="red">¥ {{CartStore.totalPrice.toFixed(2)}} </span>
         </div>
         <div class="total">
-          <el-button size="large" type="primary">下单结算</el-button>
+          <el-button size="large" type="primary" @click="goCheckout">下单结算</el-button>
         </div>
       </div>
     </div>

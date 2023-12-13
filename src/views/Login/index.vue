@@ -8,9 +8,14 @@ import { useUserStore } from '@/stores'
 const userInfoStore = useUserStore()
 const router = useRouter()
 const from = ref(null)
+// const fromModel = ref({
+//   account: 'xiaotuxian001',
+//   password: '123456',
+//   agree: true
+// })
 const fromModel = ref({
-  account: 'xiaotuxian001',
-  password: '123456',
+  account: 'heima293',
+  password: 'hm#qd@23!',
   agree: true
 })
 const rules = ref({
