@@ -10,7 +10,6 @@ const checkInfo = ref({})  // 订单对象
 const curAddress = ref({})  // 地址对象
 const getCheckout = async () => {
   const { result } = await getCheckoutAPI()
-  console.log(result)
   checkInfo.value = result
   curAddress.value = result.userAddresses.find(item => item.isDefault === 0)
 }
@@ -41,9 +40,7 @@ const subOrder = async () => {
       }
     })
   })
-  console.log(res)
   if (res.code === '1') {
-    console.log(res.result.id)
     router.replace(`/pay/${res.result.id}`)
     CartStore.updateNewList()
     return ElMessage.success('订单提交成功')
