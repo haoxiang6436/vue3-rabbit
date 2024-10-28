@@ -7,10 +7,5 @@ export const getCheckoutAPI = () => {
 
 
 export const submitOrderAPI = (data) => {
-  // return httpInstance({
-  //   url:'/member/order',
-  //   methods: 'post',
-  //   data
-  // })
   return httpInstance.post('/member/order',data)
 }

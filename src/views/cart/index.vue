@@ -1,13 +1,19 @@
 <script setup>
-import { useCartStore } from '@/stores';
+import { useCartStore, useUserStore } from '@/stores';
 import { useRouter } from 'vue-router';
 import { ElMessage } from 'element-plus';
 const router = useRouter()
 const CartStore = useCartStore()
-const singleCheck = (id,selected) => {
-  CartStore.singleCheck(id,selected)
+const UserStore = useUserStore()
+const singleCheck = (id, selected) => {
+  CartStore.singleCheck(id, selected)
 }
 const goCheckout = () => {
+  if (!UserStore.userInfo?.token) {
+    router.push('/login')
+    ElMessage.warning('您还没有登录')
+    return
+  }
   if (CartStore.cartList.length === 0) return ElMessage.warning('您的购物车还没有任何商品')
   router.push('/checkout')
 }
@@ -15,6 +21,7 @@ const goCheckout = () => {
 
 <template>
   <div class="xtx-cart-page">
+
     <div class="container m-top-20">
       <div class="cart">
         <table>
@@ -35,7 +42,7 @@ const goCheckout = () => {
             <TransitionGroup name="list">
               <tr v-for="i in CartStore.cartList" :key="i.skuId">
                 <td>
-                  <el-checkbox :model-value="i.selected" @change="(selected)=>singleCheck(i.skuId,selected)" />
+                  <el-checkbox :model-value="i.selected" @change="(selected) => singleCheck(i.skuId, selected)" />
                 </td>
                 <td>
                   <div class="goods">
@@ -85,8 +92,8 @@ const goCheckout = () => {
       <!-- 操作栏 -->
       <div class="action">
         <div class="batch">
-          共 {{CartStore.total}} 件商品，已选择 {{CartStore.isCheckTotal}} 件，商品合计：
-          <span class="red">¥ {{CartStore.totalPrice.toFixed(2)}} </span>
+          共 {{ CartStore.total }} 件商品，已选择 {{ CartStore.isCheckTotal }} 件，商品合计：
+          <span class="red">¥ {{ CartStore.totalPrice.toFixed(2) }} </span>
         </div>
         <div class="total">
           <el-button size="large" type="primary" @click="goCheckout">下单结算</el-button>
