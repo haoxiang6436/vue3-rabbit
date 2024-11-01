@@ -1,4 +1,6 @@
 # vue3-rabbit
+![Uploading Snipaste_2024-10-31_14-37-35.jpg…]()
+
 
 This template should help get you started developing with Vue 3 in Vite.
 
